@@ -1,6 +1,10 @@
+
 require 'http'
 
-response = HTTP.get("https://api.wordnik.com/v4/word.json/sandwich/definitions?limit=200&includeRelated=false&useCanonical=false&includeTags=false&api_key=")
+p "Salutations, Orator! Expand your lexicon now:"
+
+query = gets.chomp
+response = HTTP.get("https://api.wordnik.com/v4/word.json/#{query}/definitions?limit=200&includeRelated=false&useCanonical=false&includeTags=false&api_key=")  
 
 word_definition = response.parse
 word = word_definition[0]["word"]
